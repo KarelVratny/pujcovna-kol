@@ -63,6 +63,11 @@ calculatePrice.addEventListener("click", function () {
       parseFloat(rackValue);
   }
   sumPriceField.value = Math.trunc(sumPrice);
+  if (offeredPrice.value && parseInt(offeredPrice.value) >= sumPrice) {
+    comparisonPrice.value = `Tato částka je dostatečná.`;
+  } else if (offeredPrice.value && parseInt(offeredPrice.value) < sumPrice) {
+    comparisonPrice.value = `Tato částka není dostatečná.`;
+  }
 });
 
 // porovnani nabidky

@@ -3,6 +3,7 @@
 // promenne
 const calculatePrice = document.querySelector(".btn-calculatePrice");
 const offerPrice = document.querySelector(".btn-offerPrice");
+const btnEmail = document.querySelector(".btn-email");
 const mountain = document.querySelector("#mountain");
 const kid = document.querySelector("#kid");
 const road = document.querySelector("#road");
@@ -15,6 +16,8 @@ const numOfGravel = document.querySelector("#numOfGravel");
 const sumPriceField = document.querySelector('input[name="calculatedPrice"]');
 const loanPeriod = document.querySelector("#loanPeriod");
 const offeredPrice = document.querySelector("#offeredPrice");
+const comparisonPrice = document.querySelector("#comparisonPrice");
+const email = document.querySelector("#email");
 let sumPrice = 0;
 // vypocet celkove ceny
 calculatePrice.addEventListener("click", function () {
@@ -63,4 +66,19 @@ calculatePrice.addEventListener("click", function () {
 });
 
 // porovnani nabidky
-offerPrice.addEventListener("click", function () {});
+offerPrice.addEventListener("click", function () {
+  if (parseInt(offeredPrice.value) >= sumPrice) {
+    comparisonPrice.value = `Tato částka je dostatečná.`;
+  } else {
+    comparisonPrice.value = `Tato částka není dostatečná.`;
+  }
+});
+
+// validace emailu
+email.addEventListener("change", function () {
+  if (email.value.includes("@")) {
+    btnEmail.removeAttribute("disabled");
+  } else {
+    btnEmail.setAttribute("disabled", "disabled");
+  }
+});

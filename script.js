@@ -20,6 +20,10 @@ const comparisonPrice = document.querySelector("#comparisonPrice");
 const email = document.querySelector("#email");
 let sumPrice = 0;
 
+// funkce pro porovnani nabidky
+// const Compare = () => {
+//   null;
+// };
 // vypocet celkove ceny
 calculatePrice.addEventListener("click", function () {
   // ziskani hodnoty z rack
@@ -29,39 +33,29 @@ calculatePrice.addEventListener("click", function () {
       rackValue = rack[i].value;
     }
   }
-  //   console.log(rack);
-  //   console.log(parseFloat(rack));
-  //   console.log(rackValue);
-  //   console.log(parseFloat(rackValue));
 
+  // funkce pro vypocet
+  const CountPrice = (typeOfBike, numberOfBikes) => {
+    sumPrice +=
+      parseInt(typeOfBike.value) *
+      parseInt(numberOfBikes.value) *
+      parseInt(loanPeriod.value) *
+      parseFloat(rackValue);
+  };
+
+  // vypocet ceny
   sumPrice = 0;
   if (mountain.checked) {
-    sumPrice +=
-      parseInt(mountain.value) *
-      parseInt(numOfMountain.value) *
-      parseInt(loanPeriod.value) *
-      parseFloat(rackValue);
+    CountPrice(mountain, numOfMountain);
   }
   if (kid.checked) {
-    sumPrice +=
-      parseInt(kid.value) *
-      parseInt(numOfKid.value) *
-      parseInt(loanPeriod.value) *
-      parseFloat(rackValue);
+    CountPrice(kid, numOfKid);
   }
   if (road.checked) {
-    sumPrice +=
-      parseInt(road.value) *
-      parseInt(numOfRoad.value) *
-      parseInt(loanPeriod.value) *
-      parseFloat(rackValue);
+    CountPrice(road, numOfRoad);
   }
   if (gravel.checked) {
-    sumPrice +=
-      parseInt(gravel.value) *
-      parseInt(numOfGravel.value) *
-      parseInt(loanPeriod.value) *
-      parseFloat(rackValue);
+    CountPrice(gravel, numOfGravel);
   }
   sumPriceField.value = Math.trunc(sumPrice);
   if (offeredPrice.value && parseInt(offeredPrice.value) >= sumPrice) {

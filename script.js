@@ -19,6 +19,7 @@ const offeredPrice = document.querySelector("#offeredPrice");
 const comparisonPrice = document.querySelector("#comparisonPrice");
 const email = document.querySelector("#email");
 let sumPrice = 0;
+
 // vypocet celkove ceny
 calculatePrice.addEventListener("click", function () {
   // ziskani hodnoty z rack
@@ -72,10 +73,13 @@ calculatePrice.addEventListener("click", function () {
 
 // porovnani nabidky
 offerPrice.addEventListener("click", function () {
-  if (parseInt(offeredPrice.value) >= sumPrice) {
+  if (offeredPrice.value && parseInt(offeredPrice.value) >= sumPrice) {
     comparisonPrice.value = `Tato částka je dostatečná.`;
-  } else {
+  } else if (offeredPrice.value && parseInt(offeredPrice.value) < sumPrice) {
     comparisonPrice.value = `Tato částka není dostatečná.`;
+  } else {
+    alert("Zadejte hodnotu nabídky");
+    offeredPrice.focus();
   }
 });
 

@@ -12,19 +12,25 @@
     <div>
       <input type="checkbox" id="mountain" name="type" value="500" />
       <label for="mountain">horské 500 Kč/den</label>
-      <input type="number" id="numOfMountain" name="numOfMountain" min="0" />
+      <input
+        type="number"
+        id="numOfMountain"
+        name="numOfMountain"
+        min="0"
+        value="1"
+      />
       <label for="numOfMountain">ks</label>
     </div>
     <div>
       <input type="checkbox" id="kid" name="type" value="200" />
       <label for="kid">dětské 200 Kč/den</label>
-      <input type="number" id="numOfKid" name="numOfKid" value="" min="0" />
+      <input type="number" id="numOfKid" name="numOfKid" min="0" value="1" />
       <label for="numOfKid">ks</label>
     </div>
     <div>
       <input type="checkbox" id="road" name="type" value="1500" />
       <label for="road">silniční 1 500 Kč/den</label>
-      <input type="number" id="numOfRoad" name="numOfRoad" value="" min="0" />
+      <input type="number" id="numOfRoad" name="numOfRoad" min="0" value="1" />
       <label for="numOfRoad">ks</label>
     </div>
     <div>
@@ -34,8 +40,8 @@
         type="number"
         id="numOfGravel"
         name="numOfGravel"
-        value=""
         min="0"
+        value="1"
       />
       <label for="numOfGravel">ks</label>
     </div>
@@ -82,7 +88,13 @@
     </div>
     <div>
       <label for="comparisonPrice">Výsledek porovnání:</label>
-      <input type="text" id="comparisonPrice" name="comparisonPrice" readonly />
+      <input
+        type="text"
+        id="comparisonPrice"
+        name="comparisonPrice"
+        size="25"
+        readonly
+      />
     </div>
     <!-- Email -->
     <div>

@@ -62,7 +62,7 @@ calculatePrice.addEventListener("click", function () {
       parseInt(loanPeriod.value) *
       parseFloat(rackValue);
   }
-  sumPriceField.value = sumPrice;
+  sumPriceField.value = Math.trunc(sumPrice);
 });
 
 // porovnani nabidky

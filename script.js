@@ -62,7 +62,8 @@ calculatePrice.addEventListener("click", function () {
   if (gravel.checked) {
     CountPrice(gravel, numOfGravel);
   }
-  sumPriceField.value = Math.trunc(sumPrice);
+  sumPrice = Math.round(sumPrice);
+  sumPriceField.value = sumPrice;
   Compare();
 });
 
